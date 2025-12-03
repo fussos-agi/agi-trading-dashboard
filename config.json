@@ -2,42 +2,29 @@
   "currency": "EUR",
   "portfolio": [
     {
-      "name": "BigBear.ai",
-      "ticker": "BBAI",
-      "targets": [12, 20, 35, 60, 100],
+      "name": "Super Micro Computer",
+      "ticker": "SMCI",
+      "targets": [
+        40.2,
+        46.9,
+        53.6,
+        60.3
+      ],
       "trades": [
-        { "date": "2025-11-29", "shares": 100, "price": 5.50 }
+        {
+          "date": "2025-11-28",
+          "shares": 15.0,
+          "price": 33.5,
+          "type": "BUY",
+          "id": 1
+        }
       ]
     }
   ],
-  "watchlist": [
-    { "name": "BigBear.ai", "ticker": "BBAI", "reference_price": 5.3, "targets": [12, 20, 35, 60, 100] },
-    { "name": "SoundHound AI", "ticker": "SOUN", "reference_price": 12.0, "targets": [25, 40, 70, 120] },
-    { "name": "HIVE Digital Technologies", "ticker": "HIVE", "reference_price": 3.0, "targets": [6, 12, 20, 35] },
-    { "name": "C3.ai", "ticker": "AI", "reference_price": 28.0, "targets": [45, 80, 140, 220] },
-    { "name": "iRobot", "ticker": "IRBT", "reference_price": 10.0, "targets": [20, 40, 80] },
-
-    { "name": "Recursion Pharmaceuticals", "ticker": "RXRX", "reference_price": 8.0, "targets": [20, 35, 60, 120] },
-    { "name": "AbCellera Biologics", "ticker": "ABCL", "reference_price": 6.0, "targets": [15, 30, 60, 100] },
-
-    { "name": "Symbotic", "ticker": "SYM", "reference_price": 80.0, "targets": [150, 220, 350, 600] },
-    { "name": "Tesla", "ticker": "TSLA", "reference_price": 220.0, "targets": [350, 500, 900] },
-
-    { "name": "UiPath", "ticker": "PATH", "reference_price": 12.0, "targets": [20, 35, 60] },
-
-    { "name": "Lemonade", "ticker": "LMND", "reference_price": 68.0, "targets": [110, 180, 300] },
-
-    { "name": "Aeva Technologies", "ticker": "AEVA", "reference_price": 8.7, "targets": [15, 30, 60] },
-    { "name": "Ambarella", "ticker": "AMBA", "reference_price": 63.0, "targets": [100, 160, 260] },
-
-    { "name": "MicroStrategy", "ticker": "MSTR", "reference_price": 550.0, "targets": [900, 1500, 2500] },
-    { "name": "Nano Dimension", "ticker": "NNDM", "reference_price": 2.5, "targets": [5, 10, 20, 30] },
-
-    { "name": "Super Micro Computer", "ticker": "SMCI", "reference_price": 850.0, "targets": [1200, 1800, 2500, 4000] },
-    { "name": "Arista Networks", "ticker": "ANET", "reference_price": 280.0, "targets": [350, 500, 800, 1200] }
-  ],
+  "watchlist": [],
   "thresholds": {
     "run_up_pct": 30,
     "dip_pct": -30
-  }
+  },
+  "next_trade_id": 2
 }
