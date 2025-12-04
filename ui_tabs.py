@@ -506,32 +506,16 @@ def render_universe_tab(cfg, thresholds):
 
             sts, las = score_dual_candidate(analysis, thresholds, macro)
 
-            # Ampel-Logik:
+            # Ampel-Logik mit Emojis:
             # Grün = klar kaufbar (STS ≥ 65 oder LAS ≥ 60)
             # Gelb = Watchlist / opportunistischer Kauf (STS 50–65 oder LAS 50–60)
             # Rot = kein Kauf / nur beobachten
-            green_icon = icon_html(
-                "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                size=16,
-                variant="teal",
-            )
-            yellow_icon = icon_html(
-                "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                size=16,
-                variant="mustard",
-            )
-            red_icon = icon_html(
-                "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                size=16,
-                variant="rust",
-            )
-
             if sts >= 65 or las >= 60:
-                ampel = f"{green_icon} Kauf-Zone"
+                ampel = "🟢 Kauf-Zone"
             elif sts >= 50 or las >= 50:
-                ampel = f"{yellow_icon} Watchlist / opportunistisch"
+                ampel = "🟡 Watchlist / opportunistisch"
             else:
-                ampel = f"{red_icon} Kein Kauf / nur beobachten"
+                ampel = "🔴 Kein Kauf / nur beobachten"
 
             fund = analysis.get("fundamentals") or {}
             reversal_flag = is_reversal_candidate(analysis, thresholds)
@@ -544,31 +528,12 @@ def render_universe_tab(cfg, thresholds):
                 "STS (Short-Term)": sts,
                 "LAS (Long-Term AGI)": las,
                 "Ampel": ampel,
-                "Setup": (
-                    icon_html(
-                        "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                        size=14,
-                        variant="burnt",
-                    )
-                    + " Reversal"
-                ) if reversal_flag else "—",
+                "Setup": "🔁 Reversal" if reversal_flag else "—",
                 "Kurs": round(analysis["price"], 2) if analysis["price"] else None,
                 "Trend": analysis["trend"],
                 "Momentum 20d": analysis["momentum_20d"],
                 "52W-Stage": analysis["stage_52w"],
-                "Wellen-Aktie?": (
-                    icon_html(
-                        "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                        size=14,
-                        variant="teal",
-                    )
-                    if analysis["is_wave"]
-                    else icon_html(
-                        "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                        size=14,
-                        variant="rust",
-                    )
-                ),
+                "Wellen-Aktie?": "🌊 Ja" if analysis["is_wave"] else "—",
                 "Ø Tagesrange %": round(analysis["avg_range_pct"], 1) if analysis["avg_range_pct"] else None,
                 "Ø Volumen 20d": round(analysis.get("avg_volume_20d"), 0) if analysis.get("avg_volume_20d") else None,
                 "Rev-Growth 1Y %": round(fund["rev_growth_1y"], 1) if fund.get("rev_growth_1y") is not None else None,
