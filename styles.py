@@ -163,5 +163,29 @@ h1, h2, h3 {
     border-radius: 999px;
     background: #1a0b04;
 }
+
+/* Lade-Hinweis Box im Retro-Farbschema */
+.loading-box {
+    background: var(--accent-soft);          /* Burnt Orange #BE5103 */
+    color: var(--text-main);
+    border-radius: 16px;
+    padding: 0.75rem 1.1rem;
+    margin: 0.9rem 0 0.6rem;
+    border: 1px solid rgba(0,0,0,0.65);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.65);
+}
+
+.loading-box-title {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    margin-bottom: 0.25rem;
+}
+
+.loading-box-sub {
+    font-size: 0.8rem;
+    opacity: 0.95;
+}
 </style>
 """
