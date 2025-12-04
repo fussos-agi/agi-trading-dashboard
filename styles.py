@@ -8,17 +8,13 @@ STYLES = """
     --accent-teal: #069494;     /* Teal für Kontrast-Details */
     --text-main: #FFEFD2;       /* warmer, heller Text */
     --text-muted: #F5D59A;      /* etwas dunkler, gedämpfter Text */
-    --profit: #22c55e;          /* Gewinn (Grün – kann so bleiben) */
+    --profit: #22c55e;          /* Gewinn (Grün) */
     --loss: #ff4d4f;            /* Verlust (Rot) */
 }
 
-/* Hintergrund & Standard-Textfarbe – Retro Sunset Gradient */
+/* Hintergrund & Standard-Textfarbe – klare Flat-Farbe */
 html, body, .stApp {
-    background: radial-gradient(circle at top,
-        #B7410E 0%,
-        #2b1305 40%,
-        #120607 80%
-    ) !important;
+    background-color: #069494 !important;   /* neuer Teal-Hintergrund */
     color: var(--text-main) !important;
 }
 
@@ -37,74 +33,80 @@ p, span, li, label, .stMarkdown, .stMarkdown p {
     color: var(--text-muted) !important;
 }
 
-/* Tabs oben */
+/* Tabs oben (Streamlit st.tabs) */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 0.5rem;
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+    margin-bottom: 0.8rem;
 }
 .stTabs [data-baseweb="tab"] {
-    background: rgba(61, 26, 7, 0.95);  /* dunkles Burnt Orange */
+    background: transparent;
     border-radius: 999px;
     padding: 0.2rem 0.9rem;
     color: var(--text-muted);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.07);
 }
 .stTabs [data-baseweb="tab"][aria-selected="true"] {
-    background: var(--accent);          /* Mustard Yellow */
-    color: #2b1305;
-    border-color: var(--accent-soft);
-}
-
-/* KPI-Karten (Verkäufe / Käufe / HOLD) */
-.metric-card {
-    background: linear-gradient(135deg,
-        rgba(190, 81, 3, 0.9),    /* Burnt Orange */
-        rgba(183, 65, 14, 0.95)   /* Darker Orange */
-    );
-    border-radius: 18px;
-    padding: 0.8rem 1rem;
-    box-shadow: 0 16px 32px rgba(0,0,0,0.65);
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-/* GLOBALE Depot-Signalkarten – Teal-Touch */
-.glass-card {
-    background: linear-gradient(135deg,
-        rgba(183, 65, 14, 0.96),
-        rgba(6, 148, 148, 0.9)   /* Teal-Mix */
-    );
-    border-radius: 22px;
-    padding: 1.2rem 1.4rem;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.8);
-    border: 1px solid rgba(255,255,255,0.12);
-}
-
-/* Titel in der Card ein Hauch heller & größer */
-.glass-card h3, .glass-card h4, .glass-card strong {
-    color: #fffdf6 !important;
-}
-
-/* Ladder-Ziele und kleine Labels */
-.glass-card .muted, .glass-card .small-text {
-    color: var(--text-muted) !important;
-}
-
-/* Badges (P/L, Trend etc.) */
-.badge {
-    display: inline-block;
-    padding: 0.1rem 0.4rem;
-    border-radius: 999px;
-    font-size: 0.75rem;
+    background: #BE5103 !important;      /* Burnt Orange */
+    color: #fff !important;              /* gut lesbare Schrift */
+    border-color: #BE5103 !important;
     font-weight: 600;
 }
-.badge-profit {
-    background: rgba(34, 197, 94, 0.16);
-    border: 1px solid rgba(34, 197, 94, 0.75);
-    color: #c9ffdd;
+.stTabs [data-baseweb="tab"]::after {
+    display: none !important;
+    border-bottom: none !important;
 }
-.badge-trend {
-    background: rgba(255, 206, 27, 0.18);        /* Mustard Yellow */
-    border: 1px solid rgba(255, 206, 27, 0.8);
-    color: #fff2b0;
+
+/* KPI-Karten (Verkäufe / Käufe / HOLD) – flache Farbe */
+.metric-card {
+    background: var(--accent-soft);
+    border-radius: 18px;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.55);
+    border: 1px solid rgba(0,0,0,0.6);
+}
+
+/* Globale Depot-Signalkarten – flache Teal-Farbe */
+.glass-card {
+    background: var(--accent-teal);
+    border-radius: 22px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 18px 36px rgba(0,0,0,0.7);
+    border: 1px solid rgba(0,0,0,0.65);
+}
+
+/* einfache Sektionstitel */
+.section-title {
+    font-size: 1.0rem;
+    font-weight: 600;
+    margin: 0.4rem 0 0.2rem;
+}
+
+/* kleine Badges (z.B. Reversal, Breakout etc.) */
+.badge-pill {
+    display: inline-block;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Badges jetzt ohne Alpha-Overlays, nur klare Farben */
+.badge-profit {
+    background: #166534;               /* dunkles Grün */
+    border: 1px solid #16a34a;
+    color: #dcfce7;
+}
+.badge-loss {
+    background: #7f1d1d;               /* dunkles Rot */
+    border: 1px solid #ef4444;
+    color: #fee2e2;
+}
+.badge-neutral {
+    background: #334155;               /* Slate */
+    border: 1px solid #64748b;
+    color: #e2e8f0;
 }
 
 /* Tabellen-Text hell */
@@ -112,12 +114,12 @@ p, span, li, label, .stMarkdown, .stMarkdown p {
     color: var(--text-main) !important;
 }
 
-/* Tabellen-Hintergründe mit leichtem Teal-Touch */
+/* Tabellen-Hintergründe – klare Farben */
 .stDataFrame tbody td {
-    background: rgba(6, 148, 148, 0.16);
+    background: var(--bg-card) !important;
 }
 .stDataFrame thead th {
-    background: rgba(190, 81, 3, 0.95);
+    background: var(--accent-soft) !important;
 }
 
 /* Überschriften-Abstände etwas knapper */
@@ -125,57 +127,41 @@ h1, h2, h3 {
     margin-bottom: 0.4rem;
 }
 
-/* Stock-Cards im Retro-Look */
+/* Stock-Cards im Retro-Look – flache Card-Farbe */
 .stock-card {
-    background: linear-gradient(135deg,
-        rgba(61, 26, 7, 0.95),
-        rgba(6, 148, 148, 0.75)
-    );
+    background: var(--bg-card);
     border-radius: 16px;
     padding: 0.8rem 1rem;
     margin-bottom: 0.8rem;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(0,0,0,0.75);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.7);
 }
 .stock-card-header {
-    font-weight: 700;
-    margin-bottom: 0.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
 }
 .stock-card-sub {
-    font-size: 0.8rem;
-    margin-bottom: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
 }
 .stock-card-row {
-    font-size: 0.85rem;
-    margin-bottom: 0.1rem;
-}
-.badge-pill {
-    padding: 0.12rem 0.5rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.35);
-    font-size: 0.75rem;
-}
-.badge-loss {
-    background: rgba(255, 77, 79, 0.18);
-    border-color: rgba(255, 77, 79, 0.8);
-    color: #ffd0d1;
-}
-.badge-neutral {
-    background: rgba(148, 163, 184, 0.25);
-    border-color: rgba(148, 163, 184, 0.8);
-    color: #e2e8f0;
+    font-size: 0.8rem;
+    margin-bottom: 0.14rem;
 }
 
-/* SVG-Icons */
+/* SVG-Icons, die du über icon_html() einbindest */
 .agi-icon {
     vertical-align: middle;
     margin-right: 0.35rem;
 }
 
-/* optional: runder Hintergrund, falls du willst */
+/* optional: runder Hintergrund für Icons (kannst du lassen oder rausnehmen) */
 .agi-icon-badge {
     padding: 4px;
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.18);
+    background: #1a0b04;
 }
 </style>
 """

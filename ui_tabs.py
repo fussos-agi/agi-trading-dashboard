@@ -50,10 +50,13 @@ def is_reversal_candidate(analysis, thresholds):
     in_drawdown = (dd <= -20.0) and (dd >= -80.0)
 
     # 4) Wave-Unterstützung
-    has_wave_support = wave.startswith("📉") or ("neutral" in wave and analysis.get("is_wave"))
+    has_wave_support = (
+        "Re-Entry-Zone" in wave
+        or ("neutral" in wave and analysis.get("is_wave"))
+    )
 
-    # 5) Trend darf ruhig noch rot/seitwärts sein – wir spielen die frühe Drehung
-    not_hyper_bull = not trend.startswith("🟩")
+    # 5) Trend darf ruhig noch Aufwärtstrend sein – wir spielen die frühe Drehung
+    not_hyper_bull = not trend.startswith("Aufwärtstrend")
 
     return deep_dip and fresh_turn and in_drawdown and has_wave_support and not_hyper_bull
 
@@ -66,18 +69,7 @@ def render_actions_tab(cfg, thresholds):
     # Makro nur einmal berechnen
     macro = compute_macro_context()
 
-    # Überschrift mit Icon
-    st.markdown(
-        icon_html(
-            "pending_actions_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-            size=24,
-            variant="mustard"
-        )
-        + "<span style='font-size:1.05rem;font-weight:600;'>Aktionen für bestehende Positionen</span>",
-        unsafe_allow_html=True,
-    )
-
-    portfolio, analyses_portfolio, rows_portfolio, _, _ = build_portfolio_overview(cfg, thresholds)
+    portfolio, analyses_portfolio, rows_portfolio, gesamt_wert, gesamt_einsatz = build_portfolio_overview(cfg, thresholds)
 
     # -----------------------------------------------------------
     # Portfolio-Aktionen (Karten)
@@ -85,17 +77,10 @@ def render_actions_tab(cfg, thresholds):
     if not portfolio:
         st.info("Noch keine Portfolio-Analysen verfügbar. Trage im Tab 'Trade eintragen' deinen ersten Kauf ein.")
     else:
-        n_sell = n_buy = n_hold = 0
         action_rows = []
 
         for ticker, (analysis, total_shares) in analyses_portfolio.items():
             action, reason = decide_portfolio_action(analysis, total_shares)
-            if action.startswith("SELL"):
-                n_sell += 1
-            elif action.startswith("BUY"):
-                n_buy += 1
-            else:
-                n_hold += 1
 
             ek = next((r["Einstand (EK)"] for r in rows_portfolio if r["Ticker"] == ticker), None)
 
@@ -116,45 +101,9 @@ def render_actions_tab(cfg, thresholds):
                 "total_shares": total_shares,
             })
 
-        # KPI-Kacheln
-        col_s, col_b, col_h = st.columns(3)
-        with col_s:
-            st.markdown(
-                icon_html(
-                    "thumb_down_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                    size=20,
-                    variant="rust",
-                )
-                + "<span>Verkäufe (SELL)</span>",
-                unsafe_allow_html=True,
-            )
-            st.metric(label="", value=n_sell)
-
-        with col_b:
-            st.markdown(
-                icon_html(
-                    "browse_activity_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                    size=20,
-                    variant="teal",
-                )
-                + "<span>Käufe (BUY)</span>",
-                unsafe_allow_html=True,
-            )
-            st.metric(label="", value=n_buy)
-
-        with col_h:
-            st.markdown(
-                icon_html(
-                    "list_alt_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                    size=20,
-                    variant="mustard",
-                )
-                + "<span>HOLD</span>",
-                unsafe_allow_html=True,
-            )
-            st.metric(label="", value=n_hold)
-
-        # 🔁 Reversal-Fokus im Depot (Karten)
+        # --------------------------------------------------------
+        # Reversal-Fokus im Depot (Karten)
+        # --------------------------------------------------------
         reversal_candidates = []
         for row in action_rows:
             analysis = row["analysis"]
@@ -171,7 +120,15 @@ def render_actions_tab(cfg, thresholds):
             reversal_candidates.sort(key=lambda x: x[0], reverse=True)
             top_rev = reversal_candidates[:3]
 
-            st.markdown("### 🔁 Reversal-Fokus im Depot")
+            st.markdown(
+                icon_html(
+                    "e911_emergency_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                    size=18,
+                    variant="teal",
+                )
+                + "<span style='font-size:1.0rem;font-weight:600;'>Reversal-Fokus im Depot</span>",
+                unsafe_allow_html=True,
+            )
 
             cols = st.columns(len(top_rev))
             for col, (sts, las, row) in zip(cols, top_rev):
@@ -187,11 +144,16 @@ def render_actions_tab(cfg, thresholds):
                         badge_class = "badge-loss"
                         pl_text = f"{pl:.1f} %"
 
+                    header_icon = icon_html(
+                        "cognition_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                        size=16,
+                        variant="teal",
+                    )
                     st.markdown(
                         f"""
                         <div class="stock-card">
                           <div class="stock-card-header">
-                            🔁 {row['Name']} ({row['Ticker']})
+                            {header_icon} {row['Name']} ({row['Ticker']})
                           </div>
                           <div class="stock-card-sub">
                             <span class="badge-pill {badge_class}">{pl_text}</span>
@@ -207,8 +169,18 @@ def render_actions_tab(cfg, thresholds):
                         unsafe_allow_html=True,
                     )
 
-        # Alle aktuellen Signale im Depot – Karten, keine Tabelle
-        st.markdown("### 🚀 Aktuelle Signale im Depot")
+        # --------------------------------------------------------
+        # Alle aktuellen Signale im Depot – Karten
+        # --------------------------------------------------------
+        st.markdown(
+            icon_html(
+                "cognition_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                size=18,
+                variant="mustard",
+            )
+            + "<span style='font-size:1.0rem;font-weight:600;'>Aktuelle Signale im Depot</span>",
+            unsafe_allow_html=True,
+        )
 
         for row in action_rows:
             pl = row["P/L %"]
@@ -254,7 +226,15 @@ def render_actions_tab(cfg, thresholds):
 
         # Schwerpunkt-Aktion (erste Nicht-HOLD)
         st.markdown("---")
-        st.subheader("⏰ Heutige Schwerpunkt-Aktion")
+        st.markdown(
+            icon_html(
+                "cognition_2_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                size=20,
+                variant="burnt",
+            )
+            + "<span style='font-size:1.05rem;font-weight:600;'>Heutige Schwerpunkt-Aktion</span>",
+            unsafe_allow_html=True,
+        )
 
         for row in action_rows:
             if row["Aktion"] != "HOLD":
@@ -264,7 +244,12 @@ def render_actions_tab(cfg, thresholds):
                     f"- **{row['Name']} ({row['Ticker']})** – Aktion **{row['Aktion']}**, "
                     f"P/L {row['P/L %']} %, nächstes Ziel: **{nxt_txt}**."
                 )
-                st.markdown(f"👉 {row['Begründung']}")
+                reason_icon = icon_html(
+                    "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                    size=14,
+                    variant="teal",
+                )
+                st.markdown(f"{reason_icon} {row['Begründung']}", unsafe_allow_html=True)
                 break
         else:
             st.info("Aktuell keine dringenden Aktionen – alle Positionen auf HOLD.")
@@ -273,15 +258,6 @@ def render_actions_tab(cfg, thresholds):
     # Reversal-Fokus (Universe) + Monatskauf – Top 3 Kaufideen
     # -----------------------------------------------------------
     st.markdown("---")
-    st.markdown(
-        icon_html(
-            "rocket_launch_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-            size=22,
-            variant="teal",
-        )
-        + "<span style='font-size:1.0rem;font-weight:600;'>Top 3 Kaufideen aus dem AI-Universum</span>",
-        unsafe_allow_html=True,
-    )
 
     universe = load_ai_universe().get("ai_universe", [])
     if not universe:
@@ -311,12 +287,20 @@ def render_actions_tab(cfg, thresholds):
             if is_reversal_candidate(analysis, thresholds):
                 universe_reversals.append((sts, las, analysis, entry))
 
-        # 🔥 Reversal-Kandidaten aus dem Universe – Karten, über den Top 3
+        # Reversal-Kandidaten aus dem Universe – Karten, über den Top 3
         if universe_reversals:
             universe_reversals.sort(key=lambda x: x[0], reverse=True)
             rev_top = universe_reversals[:6]
 
-            st.markdown("### 🔥 Reversal-Fokus – mögliche Trendwende-Kandidaten")
+            st.markdown(
+                icon_html(
+                    "rocket_launch_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                    size=18,
+                    variant="rust",
+                )
+                + "<span style='font-size:1.0rem;font-weight:600;'>Reversal-Fokus – mögliche Trendwende-Kandidaten</span>",
+                unsafe_allow_html=True,
+            )
 
             # 2 oder 3 Karten pro Reihe
             n_cols = 3 if len(rev_top) >= 3 else len(rev_top)
@@ -348,7 +332,15 @@ def render_actions_tab(cfg, thresholds):
         top3 = scored[:3]
 
         if top3:
-            st.markdown("### 🌟 Top 3 Kaufideen – Kartenansicht")
+            st.markdown(
+                icon_html(
+                    "social_leaderboard_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                    size=18,
+                    variant="mustard",
+                )
+                + "<span style='font-size:1.0rem;font-weight:600;'>Top 3 Kaufideen</span>",
+                unsafe_allow_html=True,
+            )
 
             cols = st.columns(len(top3))
             for col, (sts, las, analysis, entry) in zip(cols, top3):
@@ -376,7 +368,15 @@ def render_actions_tab(cfg, thresholds):
 
             # Detail-Reports für alle Top 3 – in Expandern
             st.markdown("---")
-            st.markdown("### 📚 Detail-Reports – Top 3 Kaufideen")
+            st.markdown(
+                icon_html(
+                    "social_leaderboard_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                    size=18,
+                    variant="teal",
+                )
+                + "<span style='font-size:1.0rem;font-weight:600;'>Detail-Reports – Top 3 Kaufideen</span>",
+                unsafe_allow_html=True,
+            )
 
             macro_state = macro.get("regime", "unknown")
 
@@ -450,7 +450,7 @@ def render_universe_tab(cfg, thresholds):
 
     st.markdown(
         icon_html(
-            "social_leaderboard_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+            "list_alt_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
             size=24,
             variant="teal",
         )
@@ -458,7 +458,7 @@ def render_universe_tab(cfg, thresholds):
         unsafe_allow_html=True,
     )
 
-    # Score-Erklärung
+    # Score-Interpretation
     st.markdown(
         """
 **Score-Interpretation**
@@ -510,12 +510,28 @@ def render_universe_tab(cfg, thresholds):
             # Grün = klar kaufbar (STS ≥ 65 oder LAS ≥ 60)
             # Gelb = Watchlist / opportunistischer Kauf (STS 50–65 oder LAS 50–60)
             # Rot = kein Kauf / nur beobachten
+            green_icon = icon_html(
+                "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                size=16,
+                variant="teal",
+            )
+            yellow_icon = icon_html(
+                "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                size=16,
+                variant="mustard",
+            )
+            red_icon = icon_html(
+                "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                size=16,
+                variant="rust",
+            )
+
             if sts >= 65 or las >= 60:
-                ampel = "🟢 Kauf-Zone"
+                ampel = f"{green_icon} Kauf-Zone"
             elif sts >= 50 or las >= 50:
-                ampel = "🟡 Watchlist / opportunistisch"
+                ampel = f"{yellow_icon} Watchlist / opportunistisch"
             else:
-                ampel = "🔴 Kein Kauf / nur beobachten"
+                ampel = f"{red_icon} Kein Kauf / nur beobachten"
 
             fund = analysis.get("fundamentals") or {}
             reversal_flag = is_reversal_candidate(analysis, thresholds)
@@ -528,12 +544,31 @@ def render_universe_tab(cfg, thresholds):
                 "STS (Short-Term)": sts,
                 "LAS (Long-Term AGI)": las,
                 "Ampel": ampel,
-                "Setup": "🔁 Reversal" if reversal_flag else "—",
+                "Setup": (
+                    icon_html(
+                        "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                        size=14,
+                        variant="burnt",
+                    )
+                    + " Reversal"
+                ) if reversal_flag else "—",
                 "Kurs": round(analysis["price"], 2) if analysis["price"] else None,
                 "Trend": analysis["trend"],
                 "Momentum 20d": analysis["momentum_20d"],
                 "52W-Stage": analysis["stage_52w"],
-                "Wellen-Aktie?": "✅" if analysis["is_wave"] else "❌",
+                "Wellen-Aktie?": (
+                    icon_html(
+                        "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                        size=14,
+                        variant="teal",
+                    )
+                    if analysis["is_wave"]
+                    else icon_html(
+                        "alarm_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                        size=14,
+                        variant="rust",
+                    )
+                ),
                 "Ø Tagesrange %": round(analysis["avg_range_pct"], 1) if analysis["avg_range_pct"] else None,
                 "Ø Volumen 20d": round(analysis.get("avg_volume_20d"), 0) if analysis.get("avg_volume_20d") else None,
                 "Rev-Growth 1Y %": round(fund["rev_growth_1y"], 1) if fund.get("rev_growth_1y") is not None else None,
@@ -586,7 +621,15 @@ def render_portfolio_tab(cfg, thresholds):
             else:
                 st.metric("Gesamt P/L %", "n/a")
 
-        st.markdown("### 📊 Aktuelle Aktien im Depot")
+        st.markdown(
+            icon_html(
+                "account_balance_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+                size=18,
+                variant="mustard",
+            )
+            + "<span style='font-size:1.0rem;font-weight:600;'>Aktuelle Aktien im Depot</span>",
+            unsafe_allow_html=True,
+        )
 
         for r in rows:
             pl = r["P/L %"]
@@ -730,7 +773,15 @@ def render_trades_tab(cfg):
 
     # Trade-Journal
     st.markdown("---")
-    st.subheader("📒 Trade-Journal / Kontoauszug")
+    st.markdown(
+        icon_html(
+            "menu_book_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
+            size=18,
+            variant="burnt",
+        )
+        + "<span style='font-size:1.0rem;font-weight:600;'>Trade-Journal / Kontoauszug</span>",
+        unsafe_allow_html=True,
+    )
 
     journal = cfg.get("journal", [])
     if not journal:
