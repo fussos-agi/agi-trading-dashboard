@@ -2,21 +2,110 @@
   "currency": "EUR",
   "portfolio": [
     {
-      "name": "Super Micro Computer",
-      "ticker": "SMCI",
-      "targets": [
-        40.2,
-        46.9,
-        53.6,
-        60.3
-      ],
+      "name": "SoundHound AI",
+      "ticker": "SOUN",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-04",
+          "shares": 40.0,
+          "price": 12.14
+        }
+      ]
+    },
+    {
+      "name": "Marathon Digital Holdings",
+      "ticker": "MARA",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-02",
+          "shares": 40.0,
+          "price": 12.01
+        }
+      ]
+    },
+    {
+      "name": "AbCellera Biologics",
+      "ticker": "ABCL",
+      "targets": [],
       "trades": [
         {
           "date": "2025-11-28",
+          "shares": 150.0,
+          "price": 3.51
+        }
+      ]
+    },
+    {
+      "name": "MicroStrategy",
+      "ticker": "MSTR",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-04",
+          "shares": 3.0,
+          "price": 188.21
+        }
+      ]
+    },
+    {
+      "name": "QuantumScape",
+      "ticker": "QS",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-04",
+          "shares": 40.0,
+          "price": 12.76
+        }
+      ]
+    },
+    {
+      "name": "NIO",
+      "ticker": "NIO",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-04",
+          "shares": 110.0,
+          "price": 4.95
+        }
+      ]
+    },
+    {
+      "name": "Symbotic",
+      "ticker": "SYM",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-04",
+          "shares": 9.0,
+          "price": 60.48
+        }
+      ]
+    },
+    {
+      "name": "SoundThinking",
+      "ticker": "SSTI",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-02",
+          "shares": 80.0,
+          "price": 6.16
+        }
+      ]
+    },
+    {
+      "name": "Super Micro Computer",
+      "ticker": "SMCI",
+      "targets": [],
+      "trades": [
+        {
+          "date": "2025-12-28",
           "shares": 15.0,
-          "price": 33.5,
-          "type": "BUY",
-          "id": 1
+          "price": 33.5
         }
       ]
     }
@@ -26,5 +115,88 @@
     "run_up_pct": 30,
     "dip_pct": -30
   },
-  "next_trade_id": 2
+  "next_trade_id": 2,
+  "journal": [
+    {
+      "id": 1,
+      "ticker": "SOUN",
+      "name": "SoundHound AI",
+      "type": "Kauf",
+      "shares": 40.0,
+      "price": 12.14,
+      "date": "2025-12-04"
+    },
+    {
+      "id": 2,
+      "ticker": "MARA",
+      "name": "Marathon Digital Holdings",
+      "type": "Kauf",
+      "shares": 40.0,
+      "price": 12.01,
+      "date": "2025-12-02"
+    },
+    {
+      "id": 3,
+      "ticker": "ABCL",
+      "name": "AbCellera Biologics",
+      "type": "Kauf",
+      "shares": 150.0,
+      "price": 3.51,
+      "date": "2025-11-28"
+    },
+    {
+      "id": 4,
+      "ticker": "MSTR",
+      "name": "MicroStrategy",
+      "type": "Kauf",
+      "shares": 3.0,
+      "price": 188.21,
+      "date": "2025-12-04"
+    },
+    {
+      "id": 7,
+      "ticker": "QS",
+      "name": "QuantumScape",
+      "type": "Kauf",
+      "shares": 40.0,
+      "price": 12.76,
+      "date": "2025-12-04"
+    },
+    {
+      "id": 8,
+      "ticker": "NIO",
+      "name": "NIO",
+      "type": "Kauf",
+      "shares": 110.0,
+      "price": 4.95,
+      "date": "2025-12-04"
+    },
+    {
+      "id": 9,
+      "ticker": "SYM",
+      "name": "Symbotic",
+      "type": "Kauf",
+      "shares": 9.0,
+      "price": 60.48,
+      "date": "2025-12-04"
+    },
+    {
+      "id": 10,
+      "ticker": "SSTI",
+      "name": "SoundThinking",
+      "type": "Kauf",
+      "shares": 80.0,
+      "price": 6.16,
+      "date": "2025-12-02"
+    },
+    {
+      "id": 11,
+      "ticker": "SMCI",
+      "name": "Super Micro Computer",
+      "type": "Kauf",
+      "shares": 15.0,
+      "price": 33.5,
+      "date": "2025-12-28"
+    }
+  ]
 }
