@@ -647,51 +647,91 @@ def render_universe_tab(cfg, thresholds):
         )
         return
 
-    # Top-Kaufideen nach STS sortiert
     df = df.sort_values("STS (Short-Term)", ascending=False)
 
     # -----------------------------------------------------------
-    # Retro-Table-Styling – exakt wie im Trade-Journal
+    # Eigenes HTML-Table mit Retro-Design + horizontalem Scroll
     # -----------------------------------------------------------
-    styled_df = (
-        df.style
-        .set_table_styles(
-            [
-                {
-                    "selector": "th",
-                    "props": [
-                        ("background-color", "#BE5103"),  # Header burnt orange
-                        ("color", "white"),
-                        ("font-family", '"Montserrat", sans-serif'),
-                        ("font-weight", "600"),
-                        ("text-align", "left"),
-                    ],
-                },
-                {
-                    "selector": "td",
-                    "props": [
-                        ("background-color", "#FFCE1B"),  # Body mustard yellow
-                        ("color", "#111111"),
-                        ("font-family", '"Inter", sans-serif'),
-                    ],
-                },
-                {
-                    "selector": "tbody tr",
-                    "props": [("background-color", "#FFCE1B")],
-                },
-            ]
-        )
-        .set_properties(
-            **{
-                "background-color": "#FFCE1B",
-                "color": "#111111",
-                "border-bottom": "1px solid rgba(0,0,0,0.10)",
-            }
-        )
+    # CSS einmal injizieren
+    st.markdown(
+        """
+        <style>
+        .agi-radar-wrapper {
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        .agi-radar-table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            min-width: 100%;
+            font-family: "Inter", sans-serif;
+        }
+        .agi-radar-table thead th {
+            background-color: #BE5103;
+            color: #FFFFFF;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            padding: 0.65rem 0.9rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .agi-radar-table tbody td {
+            background-color: #FFCE1B;
+            color: #111111;
+            padding: 0.55rem 0.9rem;
+            vertical-align: top;
+            white-space: nowrap;
+        }
+        .agi-radar-table tbody tr:nth-child(even) td {
+            background-color: #F7C818;
+        }
+        .agi-radar-table tbody tr:hover td {
+            background-color: #FAD84A;
+        }
+        .agi-radar-table th, .agi-radar-table td {
+            border-bottom: 1px solid rgba(0,0,0,0.10);
+        }
+        .agi-radar-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+        .agi-radar-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.25);
+            border-radius: 999px;
+        }
+        .agi-radar-card {
+            border-radius: 24px;
+            box-shadow: 0 22px 40px rgba(0,0,0,0.35);
+            overflow: hidden;
+            display: inline-block;
+            min-width: 100%;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
     )
 
-    # WICHTIG: wie im Journal -> st.table, damit der gelbe/orange Rand korrekt gerendert wird
-    st.table(styled_df)
+    # HTML aus dem DataFrame
+    html_table = df.to_html(
+        index=True,
+        border=0,
+        classes="agi-radar-table",
+        justify="left",
+        escape=False,
+    )
+
+    # Wrapper + Card für runde Ecken & Shadow
+    st.markdown(
+        f"""
+        <div class="agi-radar-wrapper">
+          <div class="agi-radar-card">
+            {html_table}
+          </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 # ---------------------------------------------------------------
 # TAB: Portfolio
