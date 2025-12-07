@@ -535,7 +535,7 @@ def render_universe_tab(cfg, thresholds):
             size=24,
             variant="teal",
         )
-        + "<span style='font-size:1.05rem;font-weight:600;'>Globales AI/AGI Universe Radar</span>",
+        + "<span style='font-size:1.05rem;font-weight:600;'>Globales AGI/AI Universe Radar</span>",
         unsafe_allow_html=True,
     )
 
@@ -608,7 +608,7 @@ def render_universe_tab(cfg, thresholds):
                 "Ticker": analysis["ticker"],
                 "WKN": entry.get("wkn", "—"),
                 "Kategorie": entry.get("category", ""),
-                "AI-Exposure (1–10)": entry.get("exposure", ""),
+                "AGI-Exposure (1–10)": entry.get("exposure", ""),
                 "STS (Short-Term)": sts,
                 "LAS (Long-Term AGI)": las,
                 "Ampel": ampel,
@@ -853,7 +853,7 @@ def render_portfolio_tab(cfg, thresholds):
               </div>
               <div class="stock-card-row">
                 <b>Kategorie:</b> {category}<br/>
-                <b>AI-Exposure:</b> {exposure_txt}
+                <b>AGI-Exposure:</b> {exposure_txt}
               </div>
               <div class="stock-card-row">
                 <b>Ladder-Ziele:</b> {ladder_str}<br/>

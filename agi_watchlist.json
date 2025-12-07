@@ -1,0 +1,388 @@
+{
+  "agi_watchlist": [
+    {
+      "name": "Anthropic",
+      "category": "AGI Models",
+      "status": "private_pre_ipo",
+      "exposure": 10,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Mistral AI",
+      "category": "AGI Models / Europe",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Cohere",
+      "category": "Enterprise LLMs",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Aleph Alpha",
+      "category": "AGI Models / Europe",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Cerebras Systems",
+      "category": "AI Compute / Wafer-Scale",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Graphcore",
+      "category": "AI Chips / Europe",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Groq",
+      "category": "Low-Latency AI Compute",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "SiFive",
+      "category": "RISC-V / AI Chips",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Ampere Computing",
+      "category": "Cloud CPUs / AI",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Figure AI",
+      "category": "Humanoid Robotics / AI",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "1X Technologies",
+      "category": "Humanoid Robotics / AI",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Agility Robotics",
+      "category": "Humanoid Robotics",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Sanctuary AI",
+      "category": "Humanoid Robotics / AGI",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Insitro",
+      "category": "AI Drug Discovery",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Isomorphic Labs",
+      "category": "AI Drug Design",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "BenchSci",
+      "category": "AI for Bio Research",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Wayve",
+      "category": "End-to-End AV / AI",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Nuro",
+      "category": "Autonomous Delivery / AI",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Zoox",
+      "category": "Robotaxis / AI",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Rewind AI",
+      "category": "Personal AI / Memory",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Rabbit Inc.",
+      "category": "AI Devices / Agents",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Inflection AI",
+      "category": "Personal AGI Assistants",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Hume AI",
+      "category": "Emotion AI",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "DeepMind",
+      "category": "AGI Research (Alphabet)",
+      "status": "internal_division",
+      "exposure": 10,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "OpenAI",
+      "category": "AGI Research / Models",
+      "status": "private_pre_ipo",
+      "exposure": 10,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "xAI",
+      "category": "AGI Models",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Perplexity AI",
+      "category": "AI Search / Assistant",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Character.AI",
+      "category": "Conversational AI",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "ElevenLabs",
+      "category": "AI Voice / Audio",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "RunwayML",
+      "category": "GenAI Video / Creative",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Stability AI",
+      "category": "GenAI Images",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Hugging Face",
+      "category": "AI Model Hub / Infra",
+      "status": "private_pre_ipo",
+      "exposure": 9,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Modular AI",
+      "category": "AI Runtime / Infrastructure",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Together AI",
+      "category": "Open AI Cloud",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Lambda Labs",
+      "category": "AI Cloud / GPUs",
+      "status": "private_pre_ipo",
+      "exposure": 8,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Magic Leap",
+      "category": "AR / Spatial Computing / AI",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+      "name": "Humane AI",
+      "category": "AI Wearables / Devices",
+      "status": "private_pre_ipo",
+      "exposure": 7,
+      "notes": "",
+      "last_checked": null
+    },
+    {
+  "name": "Sakana AI",
+  "category": "AGI Models",
+  "status": "private_pre_ipo",
+  "exposure": 9,
+  "notes": "Ex-DeepMind Forscher, neue AGI-Architektur",
+  "last_checked": null
+},
+{
+  "name": "OpenPhi",
+  "category": "AGI Reasoning Systems",
+  "status": "private_pre_ipo",
+  "exposure": 8,
+  "notes": "Next-gen logisches Reasoning",
+  "last_checked": null
+},
+{
+  "name": "Pika Labs",
+  "category": "GenAI Video",
+  "status": "private_pre_ipo",
+  "exposure": 8,
+  "notes": "RunwayML-Konkurrent",
+  "last_checked": null
+},
+{
+  "name": "Luma AI",
+  "category": "3D NeRF / GenAI",
+  "status": "private_pre_ipo",
+  "exposure": 8,
+  "notes": "3D NeRF, sehr stark wachsend",
+  "last_checked": null
+},
+{
+  "name": "Sunshine",
+  "category": "Personal AI Assistants",
+  "status": "private_pre_ipo",
+  "exposure": 6,
+  "notes": "Marissa Mayer’s AI company",
+  "last_checked": null
+},
+{
+  "name": "Twelve Labs",
+  "category": "Video AI / Multimodal",
+  "status": "private_pre_ipo",
+  "exposure": 8,
+  "notes": "Stärkste Video-to-Text AI",
+  "last_checked": null
+},
+{
+  "name": "Apptronik",
+  "category": "Humanoid Robotics",
+  "status": "private_pre_ipo",
+  "exposure": 7,
+  "notes": "Roboter 'Apollo', Konkurrenz zu Figure",
+  "last_checked": null
+},
+{
+  "name": "Anduril Industries",
+  "category": "Defense AI / Robotics",
+  "status": "private_pre_ipo",
+  "exposure": 9,
+  "notes": "Verteidigungs-AI, Unicorn",
+  "last_checked": null
+},
+{
+  "name": "Tenstorrent",
+  "category": "AI Chips / RISC-V",
+  "status": "private_pre_ipo",
+  "exposure": 8,
+  "notes": "Jim Keller als CEO, extrem wichtig",
+  "last_checked": null
+},
+{
+  "name": "d-Matrix",
+  "category": "AI Inference Chips",
+  "status": "private_pre_ipo",
+  "exposure": 7,
+  "notes": "Backed by Microsoft",
+  "last_checked": null
+},
+{
+  "name": "Rain AI",
+  "category": "Neuromorphic AI Chips",
+  "status": "private_pre_ipo",
+  "exposure": 7,
+  "notes": "Neue Architektur für AGI",
+  "last_checked": null
+}
+  ]
+}

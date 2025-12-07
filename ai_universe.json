@@ -1,138 +1,1396 @@
 {
   "ai_universe": [
-    { "name": "NVIDIA", "ticker": "NVDA", "wkn": "918422", "category": "AI Compute / GPUs", "exposure": 10 },
-    { "name": "Advanced Micro Devices", "ticker": "AMD", "wkn": "863186", "category": "AI Compute / GPUs", "exposure": 9 },
-    { "name": "Intel", "ticker": "INTC", "wkn": "—", "category": "AI Compute / CPUs", "exposure": 7 },
-    { "name": "Taiwan Semiconductor", "ticker": "TSM", "wkn": "909800", "category": "AI Chip Fabrication", "exposure": 9 },
-    { "name": "Broadcom", "ticker": "AVGO", "wkn": "A2JG9Z", "category": "AI Connectivity / Accelerators", "exposure": 8 },
-    { "name": "ASML", "ticker": "ASML", "wkn": "A1J4U4", "category": "Chip Manufacturing", "exposure": 9 },
-    { "name": "Applied Materials", "ticker": "AMAT", "wkn": "—", "category": "Chip Manufacturing Equipment", "exposure": 8 },
-    { "name": "Lam Research", "ticker": "LRCX", "wkn": "—", "category": "Chip Manufacturing Equipment", "exposure": 8 },
-    { "name": "KLA Corporation", "ticker": "KLAC", "wkn": "—", "category": "Chip Manufacturing Inspection", "exposure": 7 },
-    { "name": "Micron Technology", "ticker": "MU", "wkn": "—", "category": "Memory for AI", "exposure": 7 },
-    { "name": "Super Micro Computer", "ticker": "SMCI", "wkn": "A40MRM", "category": "AI Servers", "exposure": 9 },
-    { "name": "Arista Networks", "ticker": "ANET", "wkn": "—", "category": "AI Networking", "exposure": 8 },
-    { "name": "Cisco Systems", "ticker": "CSCO", "wkn": "—", "category": "Networking", "exposure": 6 },
-    { "name": "Oracle", "ticker": "ORCL", "wkn": "—", "category": "Cloud / AI", "exposure": 7 },
-    { "name": "Microsoft", "ticker": "MSFT", "wkn": "870747", "category": "Cloud / AI", "exposure": 10 },
-    { "name": "Alphabet", "ticker": "GOOGL", "wkn": "A14Y6F", "category": "AI Models / Cloud", "exposure": 10 },
-    { "name": "Alphabet (Class C)", "ticker": "GOOG", "wkn": "A14Y6H", "category": "AI Models / Cloud", "exposure": 10 },
-    { "name": "Amazon", "ticker": "AMZN", "wkn": "906866", "category": "Cloud / AI", "exposure": 10 },
-    { "name": "Meta Platforms", "ticker": "META", "wkn": "A1JWVX", "category": "AI Models / Platforms", "exposure": 9 },
-    { "name": "Apple", "ticker": "AAPL", "wkn": "—", "category": "Consumer AI / Devices", "exposure": 7 },
-    { "name": "Tesla", "ticker": "TSLA", "wkn": "A1CX3T", "category": "AI Robotics / Autonomy", "exposure": 9 },
-    { "name": "UiPath", "ticker": "PATH", "wkn": "—", "category": "Automation / AI", "exposure": 7 },
-    { "name": "Palantir", "ticker": "PLTR", "wkn": "A2QA4J", "category": "AI Analytics", "exposure": 9 },
-    { "name": "Snowflake", "ticker": "SNOW", "wkn": "A2QB38", "category": "Data Cloud / AI", "exposure": 8 },
-    { "name": "Datadog", "ticker": "DDOG", "wkn": "A2PSZR", "category": "Monitoring / AI", "exposure": 8 },
-    { "name": "MongoDB", "ticker": "MDB", "wkn": "A2DYB1", "category": "Databases / AI", "exposure": 8 },
-    { "name": "ServiceNow", "ticker": "NOW", "wkn": "A1JX4P", "category": "Enterprise AI", "exposure": 8 },
-    { "name": "Adobe", "ticker": "ADBE", "wkn": "—", "category": "AI Creative Tools", "exposure": 8 },
-    { "name": "Autodesk", "ticker": "ADSK", "wkn": "—", "category": "Design / AI", "exposure": 7 },
-    { "name": "Salesforce", "ticker": "CRM", "wkn": "—", "category": "Enterprise AI / CRM", "exposure": 7 },
-    { "name": "Qualcomm", "ticker": "QCOM", "wkn": "—", "category": "AI Mobile Chips", "exposure": 7 },
-    { "name": "Marvell Technology", "ticker": "MRVL", "wkn": "—", "category": "AI Networking / Chips", "exposure": 7 },
-    { "name": "On Semiconductor", "ticker": "ON", "wkn": "—", "category": "AI Power / Sensors", "exposure": 7 },
-    { "name": "GlobalFoundries", "ticker": "GFS", "wkn": "—", "category": "Chip Foundry / AI", "exposure": 6 },
-    { "name": "Samsung Electronics", "ticker": "SSNLF", "wkn": "—", "category": "AI Chips / Consumer", "exposure": 7 },
-    { "name": "SK Hynix", "ticker": "HXSCL", "wkn": "—", "category": "Memory / AI", "exposure": 7 },
-    { "name": "Foxconn", "ticker": "HNHPF", "wkn": "—", "category": "AI Hardware Manufacturing", "exposure": 5 },
-    { "name": "Baidu", "ticker": "BIDU", "wkn": "—", "category": "AI Models / China", "exposure": 8 },
-    { "name": "Tencent", "ticker": "TCEHY", "wkn": "—", "category": "AI Platforms / China", "exposure": 7 },
-    { "name": "Alibaba", "ticker": "BABA", "wkn": "—", "category": "Cloud / AI China", "exposure": 7 },
-    { "name": "JD.com", "ticker": "JD", "wkn": "—", "category": "AI eCommerce / China", "exposure": 6 },
-    { "name": "Pinduoduo", "ticker": "PDD", "wkn": "—", "category": "AI eCommerce", "exposure": 6 },
-    { "name": "NIO", "ticker": "NIO", "wkn": "A2N4PB", "category": "AI EV / Autonomy", "exposure": 6 },
-    { "name": "Li Auto", "ticker": "LI", "wkn": "—", "category": "AI EV / China", "exposure": 6 },
-    { "name": "XPeng", "ticker": "XPEV", "wkn": "—", "category": "AI EV / Autonomy", "exposure": 5 },
-    { "name": "BYD", "ticker": "BYDDY", "wkn": "—", "category": "EV / Batteries", "exposure": 5 },
-    { "name": "ASUS", "ticker": "ASUUY", "wkn": "—", "category": "AI PCs / Hardware", "exposure": 5 },
-    { "name": "Dell Technologies", "ticker": "DELL", "wkn": "—", "category": "AI PCs / Servers", "exposure": 6 },
-    { "name": "HP Inc.", "ticker": "HPQ", "wkn": "—", "category": "AI PCs", "exposure": 4 },
-    { "name": "Lenovo", "ticker": "LNVGY", "wkn": "—", "category": "AI PCs", "exposure": 4 },
-    { "name": "Netflix", "ticker": "NFLX", "wkn": "—", "category": "AI Content / Streaming", "exposure": 6 },
-    { "name": "Spotify", "ticker": "SPOT", "wkn": "—", "category": "AI Content / Audio", "exposure": 5 },
-    { "name": "Roblox", "ticker": "RBLX", "wkn": "—", "category": "AI Gaming / 3D", "exposure": 6 },
-    { "name": "Unity", "ticker": "U", "wkn": "—", "category": "AI 3D Engines", "exposure": 6 },
-    { "name": "Electronic Arts", "ticker": "EA", "wkn": "—", "category": "AI Gaming", "exposure": 5 },
-    { "name": "Take-Two Interactive", "ticker": "TTWO", "wkn": "—", "category": "AI Gaming", "exposure": 5 },
-    { "name": "Adobe", "ticker": "ADBE", "wkn": "—", "category": "AI Creative Tools", "exposure": 8 },
-    { "name": "Pinterest", "ticker": "PINS", "wkn": "—", "category": "AI Recommendations", "exposure": 5 },
-    { "name": "Snap", "ticker": "SNAP", "wkn": "—", "category": "AI AR / Social", "exposure": 4 },
-    { "name": "T-Mobile", "ticker": "TMUS", "wkn": "—", "category": "5G / AI Infra", "exposure": 4 },
-    { "name": "Verizon", "ticker": "VZ", "wkn": "—", "category": "5G / AI Infra", "exposure": 4 },
-    { "name": "AT&T", "ticker": "T", "wkn": "—", "category": "5G / AI Infra", "exposure": 4 },
-    { "name": "CrowdStrike", "ticker": "CRWD", "wkn": "A2PK2R", "category": "AI Cybersecurity", "exposure": 8 },
-    { "name": "Zscaler", "ticker": "ZS", "wkn": "—", "category": "AI Cybersecurity", "exposure": 7 },
-    { "name": "Okta", "ticker": "OKTA", "wkn": "—", "category": "Identity / AI", "exposure": 6 },
-    { "name": "Cloudflare", "ticker": "NET", "wkn": "—", "category": "Edge / AI", "exposure": 7 },
-    { "name": "Akamai", "ticker": "AKAM", "wkn": "—", "category": "CDN / AI", "exposure": 6 },
-    { "name": "DigitalOcean", "ticker": "DOCN", "wkn": "—", "category": "Cloud / SMB AI", "exposure": 5 },
-    { "name": "IBM", "ticker": "IBM", "wkn": "—", "category": "AI Enterprise / Watson", "exposure": 6 },
-    { "name": "HPE", "ticker": "HPE", "wkn": "—", "category": "AI Servers / Enterprise", "exposure": 5 },
-    { "name": "Lenovo", "ticker": "LNVGY", "wkn": "—", "category": "AI PCs", "exposure": 4 },
-    { "name": "Synopsys", "ticker": "SNPS", "wkn": "871959", "category": "AI Chip Design", "exposure": 8 },
-    { "name": "Cadence Design Systems", "ticker": "CDNS", "wkn": "—", "category": "Chip Design / AI", "exposure": 8 },
-    { "name": "ARM Holdings", "ticker": "ARM", "wkn": "A3EUCD", "category": "Chip Architectures / AI", "exposure": 9 },
-    { "name": "Intel Foundry Services", "ticker": "INTC", "wkn": "—", "category": "Foundry / AI", "exposure": 7 },
-    { "name": "Teradyne", "ticker": "TER", "wkn": "—", "category": "Testing / Robotics", "exposure": 6 },
-    { "name": "iRobot", "ticker": "IRBT", "wkn": "—", "category": "Consumer Robotics", "exposure": 4 },
-    { "name": "Aeva Technologies", "ticker": "AEVA", "wkn": "—", "category": "Lidar / AI", "exposure": 4 },
-    { "name": "Luminar Technologies", "ticker": "LAZR", "wkn": "—", "category": "Lidar / Autonomy", "exposure": 4 },
-    { "name": "Innoviz", "ticker": "INVZ", "wkn": "—", "category": "Lidar / Autonomous", "exposure": 4 },
-    { "name": "ChargePoint", "ticker": "CHPT", "wkn": "—", "category": "EV Charging / AI", "exposure": 3 },
-    { "name": "QuantumScape", "ticker": "QS", "wkn": "—", "category": "Batteries / Solid State", "exposure": 3 },
-    { "name": "Rivian", "ticker": "RIVN", "wkn": "—", "category": "EV / Autonomy", "exposure": 4 },
-    { "name": "Lucid Motors", "ticker": "LCID", "wkn": "—", "category": "EV / Luxury", "exposure": 3 },
-    { "name": "Blink Charging", "ticker": "BLNK", "wkn": "—", "category": "Charging Infra", "exposure": 3 },
-    { "name": "Stem Inc.", "ticker": "STEM", "wkn": "—", "category": "AI Energy Storage", "exposure": 4 },
-    { "name": "Enphase Energy", "ticker": "ENPH", "wkn": "—", "category": "Solar / AI Optimization", "exposure": 5 },
-    { "name": "First Solar", "ticker": "FSLR", "wkn": "—", "category": "Solar Manufacturing", "exposure": 4 },
-    { "name": "Sunrun", "ticker": "RUN", "wkn": "—", "category": "Solar / Consumer", "exposure": 3 },
-    { "name": "Plug Power", "ticker": "PLUG", "wkn": "—", "category": "Hydrogen / AI", "exposure": 3 },
-    { "name": "Bloom Energy", "ticker": "BE", "wkn": "—", "category": "Hydrogen / Solid Oxide", "exposure": 3 },
-    { "name": "Quantum Computing Inc.", "ticker": "QUBT", "wkn": "—", "category": "Quantum / AI", "exposure": 3 },
-    { "name": "Rigetti Computing", "ticker": "RGTI", "wkn": "—", "category": "Quantum / AI", "exposure": 3 },
-    { "name": "IonQ", "ticker": "IONQ", "wkn": "—", "category": "Quantum / AI", "exposure": 3 },
-    { "name": "NXP Semiconductors", "ticker": "NXPI", "wkn": "—", "category": "AI Automotive / Chips", "exposure": 6 },
-    { "name": "Texas Instruments", "ticker": "TXN", "wkn": "—", "category": "Analog Chips / AI", "exposure": 5 },
-    { "name": "Analog Devices", "ticker": "ADI", "wkn": "—", "category": "Analog Chips / AI", "exposure": 5 },
-    { "name": "STMicroelectronics", "ticker": "STM", "wkn": "—", "category": "Microchips / AI", "exposure": 5 },
-    { "name": "Infineon Technologies", "ticker": "IFNNY", "wkn": "—", "category": "Power / Automotive AI", "exposure": 5 },
-    { "name": "Sony", "ticker": "SONY", "wkn": "—", "category": "Imaging / AI Sensors", "exposure": 5 },
-    { "name": "GoPro", "ticker": "GPRO", "wkn": "—", "category": "Cameras / AI", "exposure": 3 },
-    { "name": "Canon", "ticker": "CAJ", "wkn": "—", "category": "Imaging / AI", "exposure": 4 },
-    { "name": "Nikon", "ticker": "NINOY", "wkn": "—", "category": "Imaging / Japan", "exposure": 3 },
-    { "name": "Shopify", "ticker": "SHOP", "wkn": "—", "category": "AI eCommerce / Tools", "exposure": 6 },
-    { "name": "MercadoLibre", "ticker": "MELI", "wkn": "—", "category": "eCommerce / Payments", "exposure": 6 },
-    { "name": "Block", "ticker": "SQ", "wkn": "—", "category": "Payments / AI", "exposure": 5 },
-    { "name": "PayPal", "ticker": "PYPL", "wkn": "—", "category": "Payments / AI", "exposure": 5 },
-    { "name": "Mastercard", "ticker": "MA", "wkn": "—", "category": "Payments / AI", "exposure": 6 },
-    { "name": "Visa", "ticker": "V", "wkn": "—", "category": "Payments / AI", "exposure": 6 },
-    { "name": "Coinbase", "ticker": "COIN", "wkn": "—", "category": "Crypto / AI Data Infra", "exposure": 4 },
-    { "name": "Marathon Digital", "ticker": "MARA", "wkn": "A2QQBE", "category": "Crypto Mining / AI", "exposure": 3 },
-    { "name": "Riot Platforms", "ticker": "RIOT", "wkn": "—", "category": "Crypto Mining", "exposure": 3 },
-    { "name": "MicroStrategy", "ticker": "MSTR", "wkn": "—", "category": "Crypto / Bitcoin Exposure", "exposure": 3 },
-    { "name": "Abcellera Biologics", "ticker": "ABCL", "wkn": "A2QKXS", "category": "AI Drug Discovery / Biotech", "exposure": 7 },
-    { "name": "C3.ai", "ticker": "AI", "wkn": "A2P559", "category": "Pure AI Software", "exposure": 10 },
-    { "name": "SoundHound AI", "ticker": "SOUN", "wkn": "A3DR28", "category": "Voice AI", "exposure": 8 },
-    { "name": "BigBear.ai", "ticker": "BBAI", "wkn": "—", "category": "Defense AI", "exposure": 8 },
-    { "name": "Guardforce AI", "ticker": "GFAI", "wkn": "—", "category": "Security Robots / AI", "exposure": 6 },
-    { "name": "Rekor Systems", "ticker": "REKR", "wkn": "—", "category": "Traffic AI", "exposure": 5 },
-    { "name": "FiscalNote", "ticker": "NOTE", "wkn": "—", "category": "AI Analytics / Gov", "exposure": 5 },
-    { "name": "Senti Biosciences", "ticker": "SNTI", "wkn": "—", "category": "Cell Engineering / AI", "exposure": 4 },
-    { "name": "Symbotic", "ticker": "SYM", "wkn": "A3DK1X", "category": "Warehouse Robotics / AI", "exposure": 8 },
-    { "name": "Bumble", "ticker": "BMBL", "wkn": "—", "category": "AI Dating", "exposure": 3 },
-    { "name": "Match Group", "ticker": "MTCH", "wkn": "—", "category": "AI Dating", "exposure": 3 },
-    { "name": "Etsy", "ticker": "ETSY", "wkn": "—", "category": "eCommerce / Recommendations", "exposure": 3 },
-    { "name": "eBay", "ticker": "EBAY", "wkn": "—", "category": "eCommerce", "exposure": 3 },
-    { "name": "Wayfair", "ticker": "W", "wkn": "—", "category": "eCommerce / Home", "exposure": 3 },
-    { "name": "Jabil", "ticker": "JBL", "wkn": "—", "category": "Manufacturing / AI", "exposure": 5 },
-    { "name": "Flex Ltd.", "ticker": "FLEX", "wkn": "—", "category": "Manufacturing / AI", "exposure": 4 },
-    { "name": "Fastly", "ticker": "FSLY", "wkn": "—", "category": "Edge Cloud / AI", "exposure": 4 },
-    { "name": "Gen Digital", "ticker": "GEN", "wkn": "—", "category": "Consumer Security / AI", "exposure": 4 },
-    { "name": "Alteryx", "ticker": "AYX", "wkn": "—", "category": "Analytics / AI", "exposure": 5 },
-    { "name": "Alnylam Pharmaceuticals", "ticker": "ALNY", "wkn": "—", "category": "RNAi / Computational", "exposure": 4 },
-    { "name": "ShotSpotter", "ticker": "SSTI", "wkn": "A2DSDS", "category": "Acoustic Gunshot Detection / AI", "exposure": 4 }
+    {
+      "name": "NVIDIA",
+      "ticker": "NVDA",
+      "wkn": "918422",
+      "category": "AI Compute / GPUs",
+      "exposure": 10,
+      "status": "public"
+    },
+    {
+      "name": "Advanced Micro Devices",
+      "ticker": "AMD",
+      "wkn": "863186",
+      "category": "AI Compute / GPUs",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "Intel",
+      "ticker": "INTC",
+      "wkn": "855681",
+      "category": "AI Compute / CPUs",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Taiwan Semiconductor",
+      "ticker": "TSM",
+      "wkn": "909800",
+      "category": "AI Chip Fabrication",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "Broadcom",
+      "ticker": "AVGO",
+      "wkn": "A2JG9Z",
+      "category": "AI Connectivity / Accelerators",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "ASML",
+      "ticker": "ASML",
+      "wkn": "A1J4U4",
+      "category": "Chip Manufacturing",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "Applied Materials",
+      "ticker": "AMAT",
+      "wkn": "865177",
+      "category": "Chip Manufacturing Equipment",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Lam Research",
+      "ticker": "LRCX",
+      "wkn": "A40L1V",
+      "category": "Chip Manufacturing Equipment",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "KLA Corporation",
+      "ticker": "KLAC",
+      "wkn": "nicht handelbar",
+      "category": "Chip Manufacturing Inspection",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Micron Technology",
+      "ticker": "MU",
+      "wkn": "869020",
+      "category": "Memory for AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Super Micro Computer",
+      "ticker": "SMCI",
+      "wkn": "A40MRM",
+      "category": "AI Servers",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "Arista Networks",
+      "ticker": "ANET",
+      "wkn": "A40V33",
+      "category": "AI Networking",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Cisco Systems",
+      "ticker": "CSCO",
+      "wkn": "878841",
+      "category": "Networking",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Oracle",
+      "ticker": "ORCL",
+      "wkn": "871460",
+      "category": "Cloud / AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "wkn": "870747",
+      "category": "Cloud / AI",
+      "exposure": 10,
+      "status": "public"
+    },
+    {
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "wkn": "A14Y6F",
+      "category": "AI Models / Cloud",
+      "exposure": 10,
+      "status": "public"
+    },
+    {
+      "name": "Alphabet (Class C)",
+      "ticker": "GOOG",
+      "wkn": "A14Y6H",
+      "category": "AI Models / Cloud",
+      "exposure": 10,
+      "status": "public"
+    },
+    {
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "wkn": "906866",
+      "category": "Cloud / AI",
+      "exposure": 10,
+      "status": "public"
+    },
+    {
+      "name": "Meta Platforms",
+      "ticker": "META",
+      "wkn": "A1JWVX",
+      "category": "AI Models / Platforms",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "Apple",
+      "ticker": "AAPL",
+      "wkn": "865985",
+      "category": "Consumer AI / Devices",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Tesla",
+      "ticker": "TSLA",
+      "wkn": "A1CX3T",
+      "category": "AI Robotics / Autonomy",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "UiPath",
+      "ticker": "PATH",
+      "wkn": "A3CND6",
+      "category": "Automation / AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Palantir",
+      "ticker": "PLTR",
+      "wkn": "A2QA4J",
+      "category": "AI Analytics",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "Snowflake",
+      "ticker": "SNOW",
+      "wkn": "A2QB38",
+      "category": "Data Cloud / AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Datadog",
+      "ticker": "DDOG",
+      "wkn": "A2PSZR",
+      "category": "Monitoring / AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "MongoDB",
+      "ticker": "MDB",
+      "wkn": "A2DYB1",
+      "category": "Databases / AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "ServiceNow",
+      "ticker": "NOW",
+      "wkn": "A1JX4P",
+      "category": "Enterprise AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Adobe",
+      "ticker": "ADBE",
+      "wkn": "871981",
+      "category": "AI Creative Tools",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Autodesk",
+      "ticker": "ADSK",
+      "wkn": "869964",
+      "category": "Design / AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Salesforce",
+      "ticker": "CRM",
+      "wkn": "A0B87V",
+      "category": "Enterprise AI / CRM",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Qualcomm",
+      "ticker": "QCOM",
+      "wkn": "883121",
+      "category": "AI Mobile Chips",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Marvell Technology",
+      "ticker": "MRVL",
+      "wkn": "A3CNLD",
+      "category": "AI Networking / Chips",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "On Semiconductor",
+      "ticker": "ON",
+      "wkn": "930124",
+      "category": "AI Power / Sensors",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "GlobalFoundries",
+      "ticker": "GFS",
+      "wkn": "A3C6AF",
+      "category": "Chip Foundry / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Samsung Electronics",
+      "ticker": "SSNLF",
+      "wkn": "956199",
+      "category": "AI Chips / Consumer",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "SK Hynix",
+      "ticker": "HXSCL",
+      "wkn": "A1JWRE",
+      "category": "Memory / AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Foxconn",
+      "ticker": "HNHPF",
+      "wkn": "956949",
+      "category": "AI Hardware Manufacturing",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Baidu",
+      "ticker": "BIDU",
+      "wkn": "A0F5DE",
+      "category": "AI Models / China",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Tencent",
+      "ticker": "TCEHY",
+      "wkn": "A0YHJ8",
+      "category": "AI Platforms / China",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Alibaba",
+      "ticker": "BABA",
+      "wkn": "A117ME",
+      "category": "Cloud / AI China",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "JD.com",
+      "ticker": "JD",
+      "wkn": "A112ST",
+      "category": "AI eCommerce / China",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Pinduoduo",
+      "ticker": "PDD",
+      "wkn": "—",
+      "category": "AI eCommerce",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "NIO",
+      "ticker": "NIO",
+      "wkn": "A2N4PB",
+      "category": "AI EV / Autonomy",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Li Auto",
+      "ticker": "LI",
+      "wkn": "—",
+      "category": "AI EV / China",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "XPeng",
+      "ticker": "XPEV",
+      "wkn": "—",
+      "category": "AI EV / Autonomy",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "BYD",
+      "ticker": "BYDDY",
+      "wkn": "—",
+      "category": "EV / Batteries",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "ASUS",
+      "ticker": "ASUUY",
+      "wkn": "—",
+      "category": "AI PCs / Hardware",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Dell Technologies",
+      "ticker": "DELL",
+      "wkn": "—",
+      "category": "AI PCs / Servers",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "HP Inc.",
+      "ticker": "HPQ",
+      "wkn": "—",
+      "category": "AI PCs",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Lenovo",
+      "ticker": "LNVGY",
+      "wkn": "—",
+      "category": "AI PCs",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Netflix",
+      "ticker": "NFLX",
+      "wkn": "—",
+      "category": "AI Content / Streaming",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Spotify",
+      "ticker": "SPOT",
+      "wkn": "—",
+      "category": "AI Content / Audio",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Roblox",
+      "ticker": "RBLX",
+      "wkn": "—",
+      "category": "AI Gaming / 3D",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Unity",
+      "ticker": "U",
+      "wkn": "—",
+      "category": "AI 3D Engines",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Electronic Arts",
+      "ticker": "EA",
+      "wkn": "—",
+      "category": "AI Gaming",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Take-Two Interactive",
+      "ticker": "TTWO",
+      "wkn": "—",
+      "category": "AI Gaming",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Adobe",
+      "ticker": "ADBE",
+      "wkn": "—",
+      "category": "AI Creative Tools",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Pinterest",
+      "ticker": "PINS",
+      "wkn": "—",
+      "category": "AI Recommendations",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Snap",
+      "ticker": "SNAP",
+      "wkn": "—",
+      "category": "AI AR / Social",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "T-Mobile",
+      "ticker": "TMUS",
+      "wkn": "—",
+      "category": "5G / AI Infra",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Verizon",
+      "ticker": "VZ",
+      "wkn": "—",
+      "category": "5G / AI Infra",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "AT&T",
+      "ticker": "T",
+      "wkn": "—",
+      "category": "5G / AI Infra",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "CrowdStrike",
+      "ticker": "CRWD",
+      "wkn": "A2PK2R",
+      "category": "AI Cybersecurity",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Zscaler",
+      "ticker": "ZS",
+      "wkn": "—",
+      "category": "AI Cybersecurity",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Okta",
+      "ticker": "OKTA",
+      "wkn": "—",
+      "category": "Identity / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Cloudflare",
+      "ticker": "NET",
+      "wkn": "—",
+      "category": "Edge / AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Akamai",
+      "ticker": "AKAM",
+      "wkn": "—",
+      "category": "CDN / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "DigitalOcean",
+      "ticker": "DOCN",
+      "wkn": "—",
+      "category": "Cloud / SMB AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "IBM",
+      "ticker": "IBM",
+      "wkn": "—",
+      "category": "AI Enterprise / Watson",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "HPE",
+      "ticker": "HPE",
+      "wkn": "—",
+      "category": "AI Servers / Enterprise",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Lenovo",
+      "ticker": "LNVGY",
+      "wkn": "—",
+      "category": "AI PCs",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Synopsys",
+      "ticker": "SNPS",
+      "wkn": "871959",
+      "category": "AI Chip Design",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Cadence Design Systems",
+      "ticker": "CDNS",
+      "wkn": "—",
+      "category": "Chip Design / AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "ARM Holdings",
+      "ticker": "ARM",
+      "wkn": "A3EUCD",
+      "category": "Chip Architectures / AI",
+      "exposure": 9,
+      "status": "public"
+    },
+    {
+      "name": "Intel Foundry Services",
+      "ticker": "INTC",
+      "wkn": "—",
+      "category": "Foundry / AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Teradyne",
+      "ticker": "TER",
+      "wkn": "—",
+      "category": "Testing / Robotics",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "iRobot",
+      "ticker": "IRBT",
+      "wkn": "—",
+      "category": "Consumer Robotics",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Aeva Technologies",
+      "ticker": "AEVA",
+      "wkn": "—",
+      "category": "Lidar / AI",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Luminar Technologies",
+      "ticker": "LAZR",
+      "wkn": "—",
+      "category": "Lidar / Autonomy",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Innoviz",
+      "ticker": "INVZ",
+      "wkn": "—",
+      "category": "Lidar / Autonomous",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "ChargePoint",
+      "ticker": "CHPT",
+      "wkn": "—",
+      "category": "EV Charging / AI",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "QuantumScape",
+      "ticker": "QS",
+      "wkn": "—",
+      "category": "Batteries / Solid State",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Rivian",
+      "ticker": "RIVN",
+      "wkn": "—",
+      "category": "EV / Autonomy",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Lucid Motors",
+      "ticker": "LCID",
+      "wkn": "—",
+      "category": "EV / Luxury",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Blink Charging",
+      "ticker": "BLNK",
+      "wkn": "—",
+      "category": "Charging Infra",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Stem Inc.",
+      "ticker": "STEM",
+      "wkn": "—",
+      "category": "AI Energy Storage",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Enphase Energy",
+      "ticker": "ENPH",
+      "wkn": "—",
+      "category": "Solar / AI Optimization",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "First Solar",
+      "ticker": "FSLR",
+      "wkn": "—",
+      "category": "Solar Manufacturing",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Sunrun",
+      "ticker": "RUN",
+      "wkn": "—",
+      "category": "Solar / Consumer",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Plug Power",
+      "ticker": "PLUG",
+      "wkn": "—",
+      "category": "Hydrogen / AI",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Bloom Energy",
+      "ticker": "BE",
+      "wkn": "—",
+      "category": "Hydrogen / Solid Oxide",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Quantum Computing Inc.",
+      "ticker": "QUBT",
+      "wkn": "—",
+      "category": "Quantum / AI",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Rigetti Computing",
+      "ticker": "RGTI",
+      "wkn": "—",
+      "category": "Quantum / AI",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "IonQ",
+      "ticker": "IONQ",
+      "wkn": "—",
+      "category": "Quantum / AI",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "NXP Semiconductors",
+      "ticker": "NXPI",
+      "wkn": "—",
+      "category": "AI Automotive / Chips",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Texas Instruments",
+      "ticker": "TXN",
+      "wkn": "—",
+      "category": "Analog Chips / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Analog Devices",
+      "ticker": "ADI",
+      "wkn": "—",
+      "category": "Analog Chips / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "STMicroelectronics",
+      "ticker": "STM",
+      "wkn": "—",
+      "category": "Microchips / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Infineon Technologies",
+      "ticker": "IFNNY",
+      "wkn": "—",
+      "category": "Power / Automotive AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Sony",
+      "ticker": "SONY",
+      "wkn": "—",
+      "category": "Imaging / AI Sensors",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "GoPro",
+      "ticker": "GPRO",
+      "wkn": "—",
+      "category": "Cameras / AI",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Canon",
+      "ticker": "CAJ",
+      "wkn": "—",
+      "category": "Imaging / AI",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Nikon",
+      "ticker": "NINOY",
+      "wkn": "—",
+      "category": "Imaging / Japan",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Shopify",
+      "ticker": "SHOP",
+      "wkn": "—",
+      "category": "AI eCommerce / Tools",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "MercadoLibre",
+      "ticker": "MELI",
+      "wkn": "—",
+      "category": "eCommerce / Payments",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Block",
+      "ticker": "SQ",
+      "wkn": "—",
+      "category": "Payments / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "PayPal",
+      "ticker": "PYPL",
+      "wkn": "—",
+      "category": "Payments / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Mastercard",
+      "ticker": "MA",
+      "wkn": "—",
+      "category": "Payments / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Visa",
+      "ticker": "V",
+      "wkn": "—",
+      "category": "Payments / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Coinbase",
+      "ticker": "COIN",
+      "wkn": "—",
+      "category": "Crypto / AI Data Infra",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Marathon Digital",
+      "ticker": "MARA",
+      "wkn": "A2QQBE",
+      "category": "Crypto Mining / AI",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Riot Platforms",
+      "ticker": "RIOT",
+      "wkn": "—",
+      "category": "Crypto Mining",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Strategy",
+      "ticker": "MSTR",
+      "wkn": "722713",
+      "category": "Crypto / Bitcoin Exposure",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Abcellera Biologics",
+      "ticker": "ABCL",
+      "wkn": "A2QKXS",
+      "category": "AI Drug Discovery / Biotech",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "C3.ai",
+      "ticker": "AI",
+      "wkn": "A2P559",
+      "category": "Pure AI Software",
+      "exposure": 10,
+      "status": "public"
+    },
+    {
+      "name": "SoundHound AI",
+      "ticker": "SOUN",
+      "wkn": "A3DR28",
+      "category": "Voice AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "BigBear.ai",
+      "ticker": "BBAI",
+      "wkn": "—",
+      "category": "Defense AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Guardforce AI",
+      "ticker": "GFAI",
+      "wkn": "—",
+      "category": "Security Robots / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Rekor Systems",
+      "ticker": "REKR",
+      "wkn": "—",
+      "category": "Traffic AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "FiscalNote",
+      "ticker": "NOTE",
+      "wkn": "A41GD7",
+      "category": "AI Analytics / Gov",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Senti Biosciences",
+      "ticker": "SNTI",
+      "wkn": "—",
+      "category": "Cell Engineering / AI",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Symbotic",
+      "ticker": "SYM",
+      "wkn": "A3DK1X",
+      "category": "Warehouse Robotics / AI",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Bumble",
+      "ticker": "BMBL",
+      "wkn": "—",
+      "category": "AI Dating",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Match Group",
+      "ticker": "MTCH",
+      "wkn": "—",
+      "category": "AI Dating",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Etsy",
+      "ticker": "ETSY",
+      "wkn": "—",
+      "category": "eCommerce / Recommendations",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "eBay",
+      "ticker": "EBAY",
+      "wkn": "—",
+      "category": "eCommerce",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Wayfair",
+      "ticker": "W",
+      "wkn": "—",
+      "category": "eCommerce / Home",
+      "exposure": 3,
+      "status": "public"
+    },
+    {
+      "name": "Jabil",
+      "ticker": "JBL",
+      "wkn": "—",
+      "category": "Manufacturing / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Flex Ltd.",
+      "ticker": "FLEX",
+      "wkn": "—",
+      "category": "Manufacturing / AI",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Fastly",
+      "ticker": "FSLY",
+      "wkn": "—",
+      "category": "Edge Cloud / AI",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Gen Digital",
+      "ticker": "GEN",
+      "wkn": "—",
+      "category": "Consumer Security / AI",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Alteryx",
+      "ticker": "AYX",
+      "wkn": "—",
+      "category": "Analytics / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Alnylam Pharmaceuticals",
+      "ticker": "ALNY",
+      "wkn": "—",
+      "category": "RNAi / Computational",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "ShotSpotter",
+      "ticker": "SSTI",
+      "wkn": "A2DSDS",
+      "category": "Acoustic Gunshot Detection / AI",
+      "exposure": 4,
+      "status": "public"
+    },
+    {
+      "name": "Astera Labs",
+      "ticker": "ALAB",
+      "wkn": "-",
+      "category": "AI Connectivity / Chips",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Lattice Semiconductor",
+      "ticker": "LSCC",
+      "wkn": "-",
+      "category": "AI Edge / FPGAs",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Wolfspeed",
+      "ticker": "WOLF",
+      "wkn": "-",
+      "category": "Power / SiC / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Ambarella",
+      "ticker": "AMBA",
+      "wkn": "-",
+      "category": "Vision Chips / Edge AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Mobileye Global",
+      "ticker": "MBLY",
+      "wkn": "-",
+      "category": "Autonomous Driving / Computer Vision",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Samsara",
+      "ticker": "IOT",
+      "wkn": "-",
+      "category": "IoT Telemetry / AI Analytics",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "AeroVironment",
+      "ticker": "AVAV",
+      "wkn": "-",
+      "category": "Defense Drones / Autonomy",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "SentinelOne",
+      "ticker": "S",
+      "wkn": "-",
+      "category": "AI Cybersecurity",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Darktrace",
+      "ticker": "DARK.L",
+      "wkn": "-",
+      "category": "AI Cybersecurity",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Fortinet",
+      "ticker": "FTNT",
+      "wkn": "-",
+      "category": "Network Security / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Palo Alto Networks",
+      "ticker": "PANW",
+      "wkn": "-",
+      "category": "Security Cloud / AI",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Tempus AI",
+      "ticker": "TEM",
+      "wkn": "-",
+      "category": "AI Diagnostics / Healthcare",
+      "exposure": 8,
+      "status": "public"
+    },
+    {
+      "name": "Recursion Pharmaceuticals",
+      "ticker": "RXRX",
+      "wkn": "-",
+      "category": "AI Drug Discovery",
+      "exposure": 7,
+      "status": "public"
+    },
+    {
+      "name": "Schrödinger",
+      "ticker": "SDGR",
+      "wkn": "-",
+      "category": "Computational Chemistry / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Exscientia",
+      "ticker": "EXAI",
+      "wkn": "-",
+      "category": "AI Drug Design",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Absci",
+      "ticker": "ABSI",
+      "wkn": "-",
+      "category": "Generative AI Proteins",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Ginkgo Bioworks",
+      "ticker": "DNA",
+      "wkn": "-",
+      "category": "Synthetic Biology / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Elastic",
+      "ticker": "ESTC",
+      "wkn": "-",
+      "category": "Search / Vector DB / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "PagerDuty",
+      "ticker": "PD",
+      "wkn": "-",
+      "category": "Ops Automation / AI",
+      "exposure": 5,
+      "status": "public"
+    },
+    {
+      "name": "Duolingo",
+      "ticker": "DUOL",
+      "wkn": "-",
+      "category": "EdTech / Generative AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+      "name": "Aurora Innovation",
+      "ticker": "AUR",
+      "wkn": "-",
+      "category": "Autonomous Trucks / AI",
+      "exposure": 6,
+      "status": "public"
+    },
+    {
+  "name": "HCL Technologies",
+  "ticker": "HCLTECH.NS",
+  "wkn": "",
+  "category": "AI Integrator / Compute",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "Wipro",
+  "ticker": "WIT",
+  "wkn": "",
+  "category": "AI Integrator / Cloud",
+  "exposure": 5,
+  "status": "public"
+},
+{
+  "name": "Himax Technologies",
+  "ticker": "HIMX",
+  "wkn": "",
+  "category": "AI Vision Chips",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "CEVA Inc.",
+  "ticker": "CEVA",
+  "wkn": "",
+  "category": "AI Signal Processing / Chip IP",
+  "exposure": 5,
+  "status": "public"
+},
+{
+  "name": "Ansys",
+  "ticker": "ANSS",
+  "wkn": "",
+  "category": "AI Chip Simulation",
+  "exposure": 7,
+  "status": "public"
+},
+{
+  "name": "ABB Ltd.",
+  "ticker": "ABB",
+  "wkn": "",
+  "category": "Robotics / Industrial AI",
+  "exposure": 7,
+  "status": "public"
+},
+{
+  "name": "Fanuc",
+  "ticker": "FANUY",
+  "wkn": "",
+  "category": "Robotics / AI Motion Control",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "Yaskawa Electric",
+  "ticker": "YASKY",
+  "wkn": "",
+  "category": "Robotics / AI Automation",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "Vertiv",
+  "ticker": "VRT",
+  "wkn": "",
+  "category": "AI Datacenter Cooling / Power",
+  "exposure": 8,
+  "status": "public"
+},
+{
+  "name": "Eaton Corporation",
+  "ticker": "ETN",
+  "wkn": "",
+  "category": "AI Power Systems",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "Schneider Electric",
+  "ticker": "SBGSY",
+  "wkn": "",
+  "category": "AI Datacenter Infrastructure",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "Equinix",
+  "ticker": "EQIX",
+  "wkn": "",
+  "category": "AI / Cloud Datacenters",
+  "exposure": 8,
+  "status": "public"
+},
+{
+  "name": "Digital Realty Trust",
+  "ticker": "DLR",
+  "wkn": "",
+  "category": "AI / Cloud Datacenters",
+  "exposure": 7,
+  "status": "public"
+},
+{
+  "name": "SoFi Technologies",
+  "ticker": "SOFI",
+  "wkn": "",
+  "category": "AI Banking / Risk Models",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "Nubank",
+  "ticker": "NU",
+  "wkn": "",
+  "category": "AI Digital Banking",
+  "exposure": 6,
+  "status": "public"
+},
+{
+  "name": "Affirm",
+  "ticker": "AFRM",
+  "wkn": "",
+  "category": "AI Credit Risk / BNPL",
+  "exposure": 5,
+  "status": "public"
+},
+{
+  "name": "Intuitive Surgical",
+  "ticker": "ISRG",
+  "wkn": "",
+  "category": "AI Assisted Surgery / Robotics",
+  "exposure": 7,
+  "status": "public"
+},
+{
+  "name": "Illumina",
+  "ticker": "ILMN",
+  "wkn": "",
+  "category": "AI Genomic Sequencing",
+  "exposure": 7,
+  "status": "public"
+},
+{
+  "name": "Exact Sciences",
+  "ticker": "EXAS",
+  "wkn": "",
+  "category": "AI Diagnostics / Genomics",
+  "exposure": 6,
+  "status": "public"
+}
   ]
 }
