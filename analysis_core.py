@@ -590,7 +590,6 @@ def decide_portfolio_action(analysis, total_shares):
 # Scores – Short-Term (STS) & Long-Term AGI (LAS)
 # -------------------------------------------------------------------
 
-# AGI-Core-Bonus (wird in beiden Scores genutzt, aber unterschiedlich stark)
 CORE_BONUS_LAS = {
     "BBAI": 30,
     "SOUN": 25,
@@ -655,10 +654,10 @@ def score_dual_candidate(analysis, thresholds, macro=None):
     run_up = (thresholds or {}).get("run_up_pct", 30)
     dip_th = (thresholds or {}).get("dip_pct", -30)
 
-    # ---------------- STS: kurzfristiger Trading-Score ----------------
+    # ---------------- STS ----------------
     sts = 0.0
 
-    # 1) 52W-Drawdown (weich, max +20)
+    # 1) 52W-Drawdown
     if dd is not None:
         if dd >= 0:
             dd_pos = _clamp(dd, 0.0, 20.0)
@@ -667,24 +666,24 @@ def score_dual_candidate(analysis, thresholds, macro=None):
             dd_clip = _clamp(dd, -70.0, 0.0)
             sts += (abs(dd_clip) / 70.0) * 20.0
 
-    # 2) 20d Momentum (weich, -25 bis +25)
+    # 2) 20d Momentum
     if change20 is not None:
         if change20 >= 0:
-            max_up = run_up * 2.0  # z.B. +60%
+            max_up = run_up * 2.0
             c_clip = _clamp(change20, 0.0, max_up)
             sts -= (c_clip / max_up) * 25.0
         else:
-            max_dip = dip_th * 2.0  # z.B. -60%
+            max_dip = dip_th * 2.0
             c_clip = _clamp(change20, max_dip, 0.0)
             sts += (abs(c_clip) / abs(max_dip)) * 25.0
 
-    # 3) Wave-Signal (kleiner Bonus/Malus)
+    # 3) Wave
     if wave.startswith("📉"):
         sts += 10.0
     elif wave.startswith("📈"):
         sts -= 10.0
 
-    # 4) Distanz zu Re-Entry (bis +15)
+    # 4) Distanz zu Re-Entry
     if price is not None and reentry:
         dist = (price - reentry) / reentry * 100.0
         if dist <= 0:
@@ -693,7 +692,7 @@ def score_dual_candidate(analysis, thresholds, macro=None):
         elif dist <= 5:
             sts += (5.0 - dist) / 5.0 * 5.0
 
-    # 5) Distanz zu TP-Level (bis -20)
+    # 5) Distanz zu TP-Level
     if price is not None and tp:
         dist_tp = (price - tp) / tp * 100.0
         if dist_tp >= -5.0:
@@ -701,42 +700,42 @@ def score_dual_candidate(analysis, thresholds, macro=None):
             penalty = ((dist_clip + 5.0) / 20.0) * 20.0
             sts -= penalty
 
-    # 6) Trend (leicht)
+    # 6) Trend
     if trend.startswith("🟩"):
         sts += 5.0
     elif trend.startswith("🟥"):
         sts -= 5.0
 
-    # 7) Volatilität für Trading (Moonshot, max +10)
+    # 7) Volatilität
     if avg_range is not None:
         ar = max(0.0, avg_range - 3.0)
         vol_bonus = _clamp((ar / 7.0) * 10.0, 0.0, 10.0)
         sts += vol_bonus
 
-    # 8) Fundamentals – eher kleiner Effekt für STS
+    # 8) Fundamentals
     if rev_g is not None:
         rev_clip = _clamp(rev_g, -40.0, 60.0)
-        sts += (rev_clip / 60.0) * 8.0    # grob -5 bis +8
+        sts += (rev_clip / 60.0) * 8.0
     if net_m is not None:
         nm_clip = _clamp(net_m, -30.0, 30.0)
         sts += (nm_clip / 30.0) * 5.0
     if dta is not None:
         dta_clip = _clamp(dta, 0.0, 1.5)
-        sts -= (dta_clip / 1.5) * 6.0     # hohe Verschuldung -> Malus
+        sts -= (dta_clip / 1.5) * 6.0
 
-    # 9) Event-Risiko: Earnings
+    # 9) Earnings-Risiko
     if days_to_earn is not None:
         if -2 <= days_to_earn <= 2:
-            sts -= 10.0   # direkt um Earnings herum vorsichtig
+            sts -= 10.0
         elif -7 <= days_to_earn <= 7:
             sts -= 5.0
         elif 7 < days_to_earn <= 21:
             sts -= 2.0
 
-    # 10) AGI-Core-Bonus (kleiner Effekt)
+    # 10) AGI-Core-Bonus
     sts += CORE_BONUS_STS.get(ticker, 0.0)
 
-    # 11) Makro-Kontext
+    # 11) Makro
     if macro:
         regime = macro.get("regime", "normal")
         if regime == "crash":
@@ -746,10 +745,9 @@ def score_dual_candidate(analysis, thresholds, macro=None):
         elif regime == "bull":
             sts += 3.0
 
-    # ---------------- LAS: langfristiger AGI-Score ----------------
+    # ---------------- LAS ----------------
     las = 0.0
 
-    # A) Drawdown (max +30, kleiner Malus über Hoch)
     if dd is not None:
         if dd >= 0:
             dd_pos = _clamp(dd, 0.0, 20.0)
@@ -758,7 +756,6 @@ def score_dual_candidate(analysis, thresholds, macro=None):
             dd_clip = _clamp(dd, -80.0, 0.0)
             las += (abs(dd_clip) / 80.0) * 30.0
 
-    # B) DIP / RUN: für Langfrist weicher
     if change20 is not None:
         if change20 >= 0:
             max_up = run_up * 2.0
@@ -769,22 +766,18 @@ def score_dual_candidate(analysis, thresholds, macro=None):
             c_clip = _clamp(change20, max_dip, 0.0)
             las += (abs(c_clip) / abs(max_dip)) * 15.0
 
-    # C) Wave-ReEntry betonen
     if wave.startswith("📉"):
         las += 15.0
 
-    # D) Nähe zu ReEntry (max +10)
     if price is not None and reentry:
         dist = (price - reentry) / reentry * 100.0
         if dist <= 5.0:
             dist_clip = _clamp(dist, -15.0, 5.0)
             las += (5.0 - dist_clip) / 20.0 * 10.0
 
-    # E) Volatilität: leichte Präferenz (Moonshot)
     if avg_range is not None and avg_range >= 4.0:
         las += 5.0
 
-    # F) Fundamentals – stärkerer Effekt
     if rev_g is not None:
         rev_clip = _clamp(rev_g, -40.0, 80.0)
         las += (rev_clip / 80.0) * 15.0
@@ -795,10 +788,8 @@ def score_dual_candidate(analysis, thresholds, macro=None):
         dta_clip = _clamp(dta, 0.0, 1.5)
         las -= (dta_clip / 1.5) * 10.0
 
-    # G) Starker AGI-Bonus
     las += CORE_BONUS_LAS.get(ticker, 0.0)
 
-    # H) Makro-Kontext: Crash/Korrektur sind eher gut für Langfrist-Käufe
     if macro:
         regime = macro.get("regime", "normal")
         if regime == "crash":
@@ -806,23 +797,21 @@ def score_dual_candidate(analysis, thresholds, macro=None):
         elif regime == "correction":
             las += 3.0
         elif regime == "bull":
-            las -= 2.0  # langfristig eher teuer
+            las -= 2.0
 
-    # Scores sauber auf 0–100 begrenzen
     sts = _clamp(sts, 0.0, 100.0)
     las = _clamp(las, 0.0, 100.0)
 
     return round(sts, 1), round(las, 1)
 
 
-# Wrapper: alter Name liefert jetzt STS (für bestehenden Code)
 def score_watchlist_candidate(analysis, thresholds, macro=None):
     sts, las = score_dual_candidate(analysis, thresholds, macro)
     return sts
 
 
 # -------------------------------------------------------------------
-# Portfolio-Übersicht
+# Portfolio-Übersicht  ✅ HIER IST DIE KORRIGIERTE FUNKTION
 # -------------------------------------------------------------------
 
 def build_portfolio_overview(cfg, thresholds):
@@ -845,6 +834,7 @@ def build_portfolio_overview(cfg, thresholds):
         )
         analyses_portfolio[pos["ticker"].upper()] = (analysis, total_shares)
 
+        # aktueller Kurs & Werte
         kurs = analysis["price"] or 0.0
         wert = (total_shares or 0) * kurs
         einsatz = (total_shares or 0) * (avg_price or 0)
@@ -857,7 +847,12 @@ def build_portfolio_overview(cfg, thresholds):
             "Ticker": analysis["ticker"],
             "Stücke": total_shares,
             "Einstand (EK)": round(avg_price, 2) if avg_price else None,
-            "Kurs": round(analysis["price"], 2) if analysis["price"] else None,
+
+            # WICHTIG: diese Keys werden im UI benutzt
+            "Aktueller Kurs": round(kurs, 2) if kurs else None,
+            "Kurs": round(kurs, 2) if kurs else None,
+            "Wert gesamt": round(wert, 2) if wert else None,
+
             "P/L %": round(analysis["pl_pct"], 1) if analysis["pl_pct"] is not None else None,
             "Trend": analysis["trend"],
             "Wave": "✅" if analysis["is_wave"] else "❌",

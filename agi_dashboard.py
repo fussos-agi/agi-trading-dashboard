@@ -13,7 +13,7 @@ from ui_tabs import (
 
 def main():
     st.set_page_config(
-        page_title="AGI & AI Trading Dashboard",
+        page_title="AGI & AI Trading APP",
         layout="centered",
         initial_sidebar_state="collapsed",
     )
@@ -24,7 +24,6 @@ def main():
     # -------------------------------------------------
     # Lade-Hinweis + Fortschrittsbalken (Retro-Style)
     # -------------------------------------------------
-    # eigener Platzhalter-Container für Hinweis + Balken
     loader = st.empty()
 
     with loader.container():
@@ -35,26 +34,25 @@ def main():
                 AGI &amp; AI Daten werden geladen …
               </div>
               <div class="loading-box-sub">
-                Dieses Dashboard verknüpft sehr viele Markt- und Bewertungsdaten.
-                Der erste Start kann bis zu <b>120 Sekunden</b> dauern – das ist vollkommen normal.
+                Diese APP verknüpft sehr viele Markt- und Bewertungsdaten.
+                Der erste Start kann bis zu <b>180 Sekunden</b> dauern – das ist vollkommen normal.
               </div>
             </div>
             """,
             unsafe_allow_html=True,
         )
-        # Fortschrittsbalken innerhalb des gleichen Containers
         progress = st.progress(0)
 
-    # Titel mit Rocket-Icon in Retro-Teal
+    # Titel mit Icon
     st.markdown(
         f"""
         <div style="display:flex;align-items:center;gap:0.6rem;">
           {icon_html(
-                "price_change_48dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg",
-                size=44,
+                "agi_logo_v4.svg",
+                size=80,
                 variant="teal",
           )}
-          <h1 style="margin-bottom:0;">AGI &amp; AI Trading Dashboard</h1>
+          <h1 style="margin-bottom:0;">AGI &amp; AI Trading APP</h1>
         </div>
         """,
         unsafe_allow_html=True,
@@ -63,31 +61,33 @@ def main():
     # Konfiguration laden
     cfg = load_config()
     thresholds = cfg.get("thresholds", {"run_up_pct": 30, "dip_pct": -30})
-    progress.progress(30)
+    progress.progress(20)
 
-    # Native Streamlit-Tabs (bleiben innerhalb der Seite, ohne Emojis)
+    # -------------------------------------------------
+    # Tabs: DAILY ACTIONS entfernt – alles in 4 Tabs
+    # -------------------------------------------------
     tab_actions, tab_universe, tab_portfolio, tab_trades = st.tabs(
         ["HOME", "AGI/AI RADAR", "PORTFOLIO", "TRADE/JOURNAL"]
     )
 
-    # Tabs rendern – hier passiert der Großteil der Arbeit
+    # Tabs rendern
     with tab_actions:
         render_actions_tab(cfg, thresholds)
-    progress.progress(60)
+    progress.progress(40)
 
     with tab_universe:
         render_universe_tab(cfg, thresholds)
-    progress.progress(80)
+    progress.progress(60)
 
     with tab_portfolio:
         render_portfolio_tab(cfg, thresholds)
-    progress.progress(90)
+    progress.progress(80)
 
     with tab_trades:
         render_trades_tab(cfg)
     progress.progress(100)
 
-    # Wenn alles gerendert ist → Lade-Hinweis + Balken entfernen
+    # Lade-Hinweis + Balken entfernen, wenn alles fertig ist
     loader.empty()
 
 
